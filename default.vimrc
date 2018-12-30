@@ -37,4 +37,4 @@ Plug 'lokikl/vim-ctrlp-ag'
 
 call plug#end()
 
-source ~/.vim/onitra.vim
+#source ~/.vim/onitra.vim
