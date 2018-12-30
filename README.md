@@ -31,19 +31,11 @@ The version is VIM8, only because more people are using it. But fell free to use
 You must have the vim installed in your system.
 
 <ol>
-    <li>Install vim-plug. Every thing that will be installed will be with this plugin
-    Check https://github.com/junegunn/vim-plug and install in your vim;</li>
-
-    <li>Put the content of default.vimrc in your .vimrc or replace the file.
-    Attention! Check if your .vimrc file exist!</li>
-
+    <li>Install vim-plug. Every thing that will be installed will be with this plugin Check https://github.com/junegunn/vim-plug and install in your vim;</li>
+    <li>Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!</li>
     <li>Put the file noitra.vim inside you .vim/ folder;</li>
-
     <li>Open vim, type :PlugInstall and wait the instalation;</li>
-
-    <li>Edit you .vimrc and uncommit the line with this content "#source ~/.vim/onitra.vim".
-    Attention! if you are using vim on windows, would be necessary change the file path;</li>
-
+    <li>Edit you .vimrc and uncommit the line with this content "#source ~/.vim/onitra.vim". Attention! if you are using vim on windows, would be necessary change the file path;</li>
     <li>Enjoy!</li>
 </ol>
 
