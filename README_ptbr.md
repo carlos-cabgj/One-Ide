@@ -1,5 +1,4 @@
 # onitra
-<h2>Onitra</h2>
 <p>A Ultima IDE que você vai ter que aprender.</p>
 
 
