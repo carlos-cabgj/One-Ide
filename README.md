@@ -1,16 +1,16 @@
-## onitra
+## One-IDE
 <p>The last IDE that you gonna learn</p>
 
 <h4>What it is?</h4>
 
-Onitra brings defaults set ups for transform your vim into an IDE with all power of VIM.
+One-IDE brings defaults set ups for transform your vim into an IDE with all power of VIM.
 The objective is :
 
 <ul>
     <li>Select plugins for enhance the work;</li>
     <li>Turn easy the curve of learning Vim. Will not be necessary searching and learning how to use VIM as a IDE;</li>
     <li>A same IDE through every OS working and that work  through  the terminal, so you can connect from SSH and work normally;</li>
-    <li>In my career I used to work with many others IDEs like  IntelliJ IDEA, Zend Studio, Eclipse, Netbeans... But I always had issues like licence, speed, colors, plugins. Onitra solve those problems gathering tested great plugins available on github.</li>
+    <li>In my career I used to work with many others IDEs like  IntelliJ IDEA, Zend Studio, Eclipse, Netbeans... But I always had issues like licence, speed, colors, plugins. One-IDE solve those problems gathering tested great plugins available on github.</li>
 </ul>
 
 <h4>Why VIM?</h4>
@@ -41,17 +41,17 @@ You must have the vim installed in your system.
         </p>
         Here I choose the web php script, that set php, html, less, javascript configurations.
     </li>
-    <li>Put the Onitra files inside you .vim/ folder;</li>
+    <li>Put the One-IDE files inside you .vim/ folder;</li>
     <li>Open vim, avoid the initial erros notices, type :PlugInstall and wait the *instalation;</li>
     <li>Edit you .vimrc and uncommit the line with this content "#source ~/.vim/onitra.vim". Attention! if you are using vim on windows, would be necessary change the file path;</li>
     <li>Enjoy!</li>
 </ol>
 
-This is the first commit of Onitra. The documentation Will be release soon.
+This is the first commit of One-IDE. The documentation Will be release soon.
 
 I'm alone testing those plugins and writing configurations, docs and tutorial from them, please if you want to collaborate I will be glad to have new team members.
 
-* Onitra uses YouCompleteMe, phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
+* One-IDE uses YouCompleteMe, phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
 
 YCM https://valloric.github.io/YouCompleteMe/
 Ag https://github.com/ggreer/the_silver_searcher ( Binary for Windows https://github.com/k-takata/the_silver_searcher-win32/releases, set it in onitra.vim )
