@@ -35,15 +35,17 @@ You must have the vim installed in your system.
         Now you must choose your configuration for example <br/>
         <p>
             call plug#begin()<br/>
-            source ~/.vim/onitra.vim<br/>
-            source ~/.vim/onitra_web_php.vim<br/>
+                source ~/.vim/one_ide.vim<br/>
+                source ~/.vim/one_javascript.vim<br/>
+                source ~/.vim/one_php.vim<br/>
             call plug#end()<br/>
         </p>
         Here I choose the web php script, that set php, html, less, javascript configurations.
     </li>
     <li>Put the One-IDE files inside you .vim/ folder;</li>
     <li>Open vim, avoid the initial erros notices, type :PlugInstall and wait the *instalation;</li>
-    <li>Edit you .vimrc and uncommit the line with this content "#source ~/.vim/onitra.vim". Attention! if you are using vim on windows, would be necessary change the file path;</li>
+    <li>Edit you .vimrc with your preferable configuration </li>
+    <li>Attention! if you are using vim on windows, would be necessary change the file path</li>
     <li>Enjoy!</li>
 </ol>
 
@@ -54,9 +56,10 @@ I'm alone testing those plugins and writing configurations, docs and tutorial fr
 * One-IDE uses YouCompleteMe, phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
 
 YCM https://valloric.github.io/YouCompleteMe/
+<br/>
 Ag https://github.com/ggreer/the_silver_searcher ( Binary for Windows https://github.com/k-takata/the_silver_searcher-win32/releases, set it in onitra.vim )
-
+<br/>
 * Vim airline needs powerfonts for use arrows;
 
 <h3>Tutorial</h3>
-Coming soon... onitra
+Coming soon... OneIde
