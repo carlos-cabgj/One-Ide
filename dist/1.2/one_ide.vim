@@ -24,7 +24,13 @@ Plug 'kien/ctrlp.vim'
 Plug 'lokikl/vim-ctrlp-ag'
 
 "---------------------------------------------------------------------- ONE IDE ----------------------------------------------------------------------
-set guifont=Consolas\ Regular\ 12
+"set guifont=Consolas\ Regular\ 12
+set guifont=Consolas:h12
+
+"Define delete without yank
+
+nnoremap x "_d
+vnoremap x "_d
 
 "Define better toggle insermode to normalmode
 inoremap <C-f> <ESC>
@@ -73,9 +79,9 @@ vnoremap > >gv
 
 autocmd VimEnter * set guioptions -=T
 
-nmap <C-V> "+gP
-imap <C-V> <ESC><C-V>i
-vmap <C-C> "+y
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
+vnoremap <C-C> "+y
 
 nnoremap <silent> <buffer> <2-leftmouse> :call <SID>NERDTreeCustomOpenInTab()<cr>
 noremap <C-Home> :TagbarToggle<CR>
@@ -108,13 +114,13 @@ let g:ctrlp_ag_ignores = '--ignore .git
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
-"PLUGIN TABBAR ----------------------------------------------------------------------
+"---------------------------------------------------------------------- PLUGIN UltiSnips ----------------------------------------------------------------------
 
 let g:UltiSnipsExpandTrigger="<F6>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-"PLUGIN TABBAR ----------------------------------------------------------------------
+"---------------------------------------------------------------------- PLUGIN TABBAR ----------------------------------------------------------------------
 
  nmap <F7> :TagbarToggle<CR>
  
