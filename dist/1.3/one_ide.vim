@@ -143,8 +143,6 @@ endif
 
 let g:cctrlp_show_hidden = 1
 
-nnoremap <c-f> :CtrlPag<cr>
-vnoremap <c-f> :CtrlPagVisual<cr>
 nnoremap <leader>ca :CtrlPagLocate
 nnoremap <leader>cp :CtrlPagPrevious<cr>
 let g:ctrlp_ag_ignores = '--ignore .git
