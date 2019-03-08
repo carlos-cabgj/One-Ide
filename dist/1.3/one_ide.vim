@@ -1,10 +1,12 @@
 " Development Tools
+
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'universal-ctags/ctags'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'mbbill/undotree'
 Plug 'brooth/far.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -14,6 +16,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
 " Tools
 Plug 'scrooloose/nerdtree'
@@ -36,6 +39,7 @@ vnoremap x "_d
 
 "Define better toggle insermode to normalmode
 inoremap <C-f> <ESC>
+vnoremap <C-f> <ESC>
 
 "Define highline on cursor line
 :set cursorline
@@ -93,6 +97,19 @@ set backspace=indent,eol,start
 
 set autoindent 
 
+set encoding=utf-8
+
+ca Ag Ag!
+"---------------------------------------------------------------------- PLUGIN gutentags_plus ----------------------------------------------------------------------
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.one-project']
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
 "---------------------------------------------------------------------- PLUGIN deoplete ----------------------------------------------------------------------
 
 let g:deoplete#auto_completion_start_length = 2
@@ -136,8 +153,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+  set conceallevel=0 concealcursor=niv
 endif
+
+"Se default apperance of encoding
+set encoding=utf-8
+
+" Prevent to use ag and openned the first result
+ca Ag Ag!
 
 "---------------------------------------------------------------------- PLUGIN CTRLP ----------------------------------------------------------------------
 
@@ -171,7 +194,7 @@ let g:ale_fix_on_save = 1
  
 "---------------------------------------------------------------------- PLUGIN GUTENTAGS ----------------------------------------------------------------------
 
-let g:gutentags_project_root = ['.git', '.svn', '.root', '.hg', '.project']
+let g:gutentags_project_root = ['.git', '.svn', '.one-project']
 let g:gutentags_ctags_exclude = ['*.css', '*.html']
 
 "---------------------------------------------------------------------- PLUGIN NERDTREE ----------------------------------------------------------------------
