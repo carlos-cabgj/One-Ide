@@ -1,12 +1,12 @@
 " Development Tools
 
+Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'universal-ctags/ctags'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
 Plug 'mbbill/undotree'
 Plug 'brooth/far.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -30,8 +30,6 @@ Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 
 "---------------------------------------------------------------------- ONE IDE ----------------------------------------------------------------------
-"set guifont=Consolas\ Regular\ 12
-set guifont=Consolas:h12
 
 "Define delete without yank
 nnoremap x "_d
@@ -57,9 +55,7 @@ set hlsearch
 set tabstop=4
 
 " refactoy tab to spaces
-if !&modifiable
-	autocmd VimEnter * retab
-endif
+autocmd VimEnter * retab
 
 "does nothing more than copy the indentation from the previous line, when starting a new line.
 "set autoindent
@@ -74,6 +70,7 @@ set mouse=a
 
 " Allow insert the only occurrence and preview data from multiples
 set completeopt=menu,preview
+
 
 " Indent with tab
 nnoremap <S-Tab> <<
@@ -109,6 +106,27 @@ let g:gutentags_project_root = ['.one-project']
 
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
+"---------------------------------------------------------------------- PLUGIN neosnippet ----------------------------------------------------------------------
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><C-k> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=0 concealcursor=niv
+endif
 
 "---------------------------------------------------------------------- PLUGIN deoplete ----------------------------------------------------------------------
 
@@ -134,33 +152,6 @@ function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
 endfunction
 
-"---------------------------------------------------------------------- PLUGIN neosnippet -----------------------------------------------------------------
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=0 concealcursor=niv
-endif
-
-"Se default apperance of encoding
-set encoding=utf-8
-
-" Prevent to use ag and openned the first result
-ca Ag Ag!
 
 "---------------------------------------------------------------------- PLUGIN CTRLP ----------------------------------------------------------------------
 
@@ -192,15 +183,21 @@ let g:ale_fix_on_save = 1
 
  nmap <F7> :TagbarToggle<CR>
  
-"---------------------------------------------------------------------- PLUGIN GUTENTAGS ----------------------------------------------------------------------
+"---------------------------------------------------------------------- PLUGIN GUTENTAGS And Ctags ----------------------------------------------------------------------
 
-let g:gutentags_project_root = ['.git', '.svn', '.one-project']
+let g:gutentags_project_root = ['.one-project']
 let g:gutentags_ctags_exclude = ['*.css', '*.html']
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 "---------------------------------------------------------------------- PLUGIN NERDTREE ----------------------------------------------------------------------
 
 let g:NERDTreeChDirMode   = 2
 let NERDTreeShowBookmarks = 1
+
+"autocmd VimEnter * call NERDTreeAddKeyMap({
+\                       'key': '<cr>',
+\                       'callback': {-> feedkeys("\<c-d>", 'int')},
+\                      })
 
 autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<2-LeftMouse>', 'scope': "FileNode", 'callback': "OpenInTab", 'override':1 })
 autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<ENTER>', 'scope': "FileNode", 'callback': "OpenInTab", 'override':1 })
@@ -208,6 +205,7 @@ autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<CR>', 'scope': "FileNode", 
 let NERDTreeShowHidden=1
 
 function! OpenInTab(node)
+autocmd VimEnter * node
     call a:node.activate({'reuse': 'all', 'where': 't'})
 endfunction
 
@@ -215,25 +213,20 @@ endfunction
 
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_meaningful_tab_names = 1
+let NERDTreeShowHidden=1
 
 "---------------------------------------------------------------------- PLUGIN AIRLINE ----------------------------------------------------------------------
 
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"Add on tab
-let g:airline#extensions#tabline#enabled = 1
 let g:nerdtree_tabs_open_on_gui_startup = 1
 
 "If you have installed powerline fonts
-
-"Set Arrow in airline for use powerline fonts
-let g:airline_powerline_fonts = 1 
-"If Not
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1 "Set Arrow in ariline for use powerline fonts
 
 "---------------------------------------------------------------------- PLUGIN color ----------------------------------------------------------------------
-"Define the collor scheme
+
 autocmd VimEnter * colorscheme atom
+
 "---------------------------------------------------------------------- PLUGIN vim-indent-guides ----------------------------------------------------------------------
 
 let g:indent_guides_enable_on_vim_startup = 1
