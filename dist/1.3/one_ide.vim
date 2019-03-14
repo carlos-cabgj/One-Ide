@@ -38,6 +38,7 @@ vnoremap x "_d
 "Define better toggle insermode to normalmode
 inoremap <C-f> <ESC>
 vnoremap <C-f> <ESC>
+nnoremap <C-f> <ESC>
 
 "Define highline on cursor line
 :set cursorline
@@ -46,7 +47,7 @@ vnoremap <C-f> <ESC>
 set expandtab
 
 "Define  indenting is 4 spaces
-set shiftwidth=4  
+set shiftwidth=4
 
 " Highlight all search pattern matches
 set hlsearch
@@ -55,7 +56,10 @@ set hlsearch
 set tabstop=4
 
 " refactoy tab to spaces
-autocmd VimEnter * retab
+if !&modifiable
+	autocmd VimEnter * retab
+endif
+
 
 "does nothing more than copy the indentation from the previous line, when starting a new line.
 "set autoindent
@@ -89,10 +93,10 @@ set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
 vnoremap <C-C> "+y
 
-"Fix any backspace problem (usually on windows) 
+"Fix any backspace problem (usually on windows)
 set backspace=indent,eol,start
 
-set autoindent 
+set autoindent
 
 set encoding=utf-8
 
@@ -143,7 +147,7 @@ autocmd VimEnter * call deoplete#custom#option({
     \ 'smart_case': v:true,
     \ })
 
-    
+
 function! Multiple_cursors_before()
     let b:deoplete_disable_auto_complete = 1
 endfunction
@@ -151,7 +155,6 @@ endfunction
 function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
 endfunction
-
 
 "---------------------------------------------------------------------- PLUGIN CTRLP ----------------------------------------------------------------------
 
@@ -182,7 +185,7 @@ let g:ale_fix_on_save = 1
 "---------------------------------------------------------------------- PLUGIN TABBAR ----------------------------------------------------------------------
 
  nmap <F7> :TagbarToggle<CR>
- 
+
 "---------------------------------------------------------------------- PLUGIN GUTENTAGS And Ctags ----------------------------------------------------------------------
 
 let g:gutentags_project_root = ['.one-project']
