@@ -101,6 +101,7 @@ set autoindent
 set encoding=utf-8
 
 ca Ag Ag!
+ca ag Ag!
 "---------------------------------------------------------------------- PLUGIN gutentags_plus ----------------------------------------------------------------------
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
