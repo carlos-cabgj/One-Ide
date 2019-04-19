@@ -34,13 +34,13 @@ You must have the vim installed in your system.
     <li>Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
         Now you must choose your configuration for example <br/>
         <p>
-            call plug#begin()
-            Plug 'carlos-cabgj/One-Ide'
-            let g:One_Ide_options = ['php', 'js']
-            if filereadable($HOME . "/.vim/plugged/One-Ide/dist/1.4/one_ide.vim")
-                source $HOME/.vim/plugged/One-Ide/dist/1.4/one_ide.vim
-            endif
-            call plug#end()
+            call plug#begin()</br>
+            Plug 'carlos-cabgj/One-Ide'</br>
+            let g:One_Ide_options = ['php', 'js']</br>
+            if filereadable($HOME . "/.vim/plugged/One-Ide/dist/1.4/one_ide.vim")</br>
+                source $HOME/.vim/plugged/One-Ide/dist/1.4/one_ide.vim</br>
+            endif</br>
+            call plug#end()</br>
         </p>
         In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
     </li>
