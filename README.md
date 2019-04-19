@@ -34,17 +34,20 @@ You must have the vim installed in your system.
     <li>Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
         Now you must choose your configuration for example <br/>
         <p>
-            call plug#begin()<br/>
-                source ~/.vim/one_ide.vim<br/>
-                source ~/.vim/one_javascript.vim<br/>
-                source ~/.vim/one_php.vim<br/>
-            call plug#end()<br/>
+            call plug#begin()
+
+            Plug 'carlos-cabgj/One-Ide'
+            let g:One_Ide_options = ['php', 'js']
+
+            if filereadable($HOME . "/.vim/plugged/One-Ide/dist/1.4/one_ide.vim")
+                source $HOME/.vim/plugged/One-Ide/dist/1.4/one_ide.vim
+            endif
+
+            call plug#end()
         </p>
-        Here I choose the web php script, that set php, html, less, javascript configurations.
+        In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
     </li>
-    <li>Put the One-IDE files inside you .vim/ folder;</li>
-    <li>Open vim, avoid the initial erros notices, type :PlugInstall and wait the *instalation;</li>
-    <li>Edit you .vimrc with your preferable configuration </li>
+    <li>Open vim, run :PlugInstall one time for install the OneIde, close and do the same thing again for install the plugins.</li>
     <li>Attention! if you are using vim on windows, would be necessary change the file path</li>
     <li>Enjoy!</li>
 </ol>
@@ -53,13 +56,12 @@ This is the first commit of One-IDE. The documentation Will be release soon.
 
 I'm alone testing those plugins and writing configurations, docs and tutorial from them, please if you want to collaborate I will be glad to have new team members.
 
-* One-IDE uses YouCompleteMe, phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
+* One-IDE uses phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
 
-YCM https://valloric.github.io/YouCompleteMe/
 <br/>
-Ag https://github.com/ggreer/the_silver_searcher ( Binary for Windows https://github.com/k-takata/the_silver_searcher-win32/releases, set it in onitra.vim )
+Ag https://github.com/ggreer/the_silver_searcher ( Binary for Windows https://github.com/k-takata/the_silver_searcher-win32/releases, set it in OneIde )
 <br/>
 * Vim airline needs powerfonts for use arrows;
 
-<h3>Tutorial</h3>
+<h3>Tutorial and Docs</h3>
 Coming soon... OneIde
