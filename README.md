@@ -35,14 +35,11 @@ You must have the vim installed in your system.
         Now you must choose your configuration for example <br/>
         <p>
             call plug#begin()
-
             Plug 'carlos-cabgj/One-Ide'
             let g:One_Ide_options = ['php', 'js']
-
             if filereadable($HOME . "/.vim/plugged/One-Ide/dist/1.4/one_ide.vim")
                 source $HOME/.vim/plugged/One-Ide/dist/1.4/one_ide.vim
             endif
-
             call plug#end()
         </p>
         In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
