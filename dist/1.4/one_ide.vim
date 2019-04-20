@@ -1,3 +1,11 @@
+function s:OIPath(path)
+	if g:One_Ide_os == 'win'
+	  return substitute(a:path, "/",  "\\" , "g")
+	else
+	  return substitute(a:path, "\\",  "/" , "g")
+	endif
+endfunction
+
 " Development Tools
 
 Plug 'majutsushi/tagbar'
