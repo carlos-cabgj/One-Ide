@@ -34,27 +34,42 @@ Plug 'flazz/vim-colorschemes'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'thaerkh/vim-workspace'
+Plug 'tpope/vim-fugitive'
 
 "Searchers
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 
+function! s:OIPath(path)
+	if has('win32')
+	  return substitute(a:path, "/",  "\\" , "g")
+	else
+	  return substitute(a:path, "\\",  "/" , "g")
+	endif
+endfunction
+
 if (index(One_Ide_options, 'php') >= 0)
-    source $HOME/.vim/plugged/One-Ide/dist/1.4/one_php.vim
+    source s:OIPath($HOME/.vim/plugged/One-Ide/dist/1.4/one_php.vim)
 endif
 
 if (index(One_Ide_options, 'js') >= 0)
-    source $HOME/.vim/plugged/One-Ide/dist/1.4/one_javascript.vim
+    source s:OIPath($HOME/.vim/plugged/One-Ide/dist/1.4/one_javascript.vim)
 endif
 
-source $HOME/.vim/plugged/One-Ide/dist/1.4/one_ide_paths.vim
-
+source s:OIPath($HOME/.vim/plugged/One-Ide/dist/1.4/one_ide_paths.vim)
 
 "---------------------------------------------------------------------- ONE IDE ----------------------------------------------------------------------
+
+"Allow change buffer without saving
+set hidden
 
 "Define delete without yank
 nnoremap x "_dl
 vnoremap x "_d
+
+"prevent yank the last copy text
+vnoremap p "_dP
+vnoremap P "_dP
 
 "Define better toggle insermode to normalmode
 inoremap <C-f> <ESC>
@@ -122,7 +137,7 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
 
-if filereadable($HOME . "/.vim/plugged/nerdtree/plugin/NERD_tree.vim")
+if filereadable(s:OIPath($HOME . "/.vim/plugged/nerdtree/plugin/NERD_tree.vim"))
 
     "---------------------------------------------------------------------- PLUGIN workspace ----------------------------------------------------------------------
 
@@ -132,12 +147,6 @@ if filereadable($HOME . "/.vim/plugged/nerdtree/plugin/NERD_tree.vim")
 
     let g:workspace_autosave_always = 1
     let g:workspace_autocreate =1
-
-    let g:workspace_session_name = '~/.vim/sessions/Session.vim'
-    let g:workspace_undodir = $HOME . '/.vim/.undodir'
-
-    "let g:workspace_session_directory = $HOME . '/.vim/sessions/'
-    "autocmd VimEnter * source ~/.vim/sessions/\%opt\%lampp\%htdocs\%Dropbox\%projects
 
     "---------------------------------------------------------------------- PLUGIN gutentags_plus ----------------------------------------------------------------------
     " enable gtags module
@@ -235,7 +244,7 @@ if filereadable($HOME . "/.vim/plugged/nerdtree/plugin/NERD_tree.vim")
     let g:NERDTreeChDirMode   = 1
     let NERDTreeShowBookmarks = 1
     let NERDTreeShowHidden=1
-    let NERDTreeIgnore	=	['.swp$']
+    let NERDTreeIgnore	=	['.swp$','\~$','.un\~$']
 
     "---------------------------------------------------------------------- PLUGIN AIRLINE ----------------------------------------------------------------------
 

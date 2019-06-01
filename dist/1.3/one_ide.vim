@@ -1,15 +1,16 @@
 " Development Tools
 
-Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'universal-ctags/ctags'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'mbbill/undotree'
 Plug 'brooth/far.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'godlygeek/tabular'
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -20,19 +21,20 @@ Plug 'honza/vim-snippets'
 
 " Tools
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
+Plug 'thaerkh/vim-workspace'
 
 "Searchers
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 
 "---------------------------------------------------------------------- ONE IDE ----------------------------------------------------------------------
 
 "Define delete without yank
-nnoremap x "_d
+nnoremap x "_dl
 vnoremap x "_d
 
 "Define better toggle insermode to normalmode
@@ -100,8 +102,25 @@ set autoindent
 
 set encoding=utf-8
 
-ca Ag Ag!
-ca ag Ag!
+ca Ack Ack!
+
+map gn :bn<cr>
+map gp :bp<cr>
+
+"---------------------------------------------------------------------- PLUGIN workspace ----------------------------------------------------------------------
+
+let g:workspace_persist_undo_history = 1
+
+nnoremap <f4> :ToggleWorkspace<CR>
+
+let g:workspace_autosave_always = 1
+let g:workspace_autocreate =1
+
+"let g:workspace_session_name = '~/.vim/sessions/Session.vim'
+let g:workspace_undodir = $HOME . '/.vim/.undodir'
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+"autocmd VimEnter * source ~/.vim/sessions/\%opt\%lampp\%htdocs\%Dropbox\%projects
+
 "---------------------------------------------------------------------- PLUGIN gutentags_plus ----------------------------------------------------------------------
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
@@ -192,32 +211,19 @@ let g:ale_fix_on_save = 1
 let g:gutentags_project_root = ['.one-project']
 let g:gutentags_ctags_exclude = ['*.css', '*.html']
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
+let g:gutentags_define_advanced_commands = 1
 "---------------------------------------------------------------------- PLUGIN NERDTREE ----------------------------------------------------------------------
 
-let g:NERDTreeChDirMode   = 2
+let g:NERDTreeChDirMode   = 1
 let NERDTreeShowBookmarks = 1
-
-"autocmd VimEnter * call NERDTreeAddKeyMap({
-\                       'key': '<cr>',
-\                       'callback': {-> feedkeys("\<c-d>", 'int')},
-\                      })
-
-autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<2-LeftMouse>', 'scope': "FileNode", 'callback': "OpenInTab", 'override':1 })
-autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<ENTER>', 'scope': "FileNode", 'callback': "OpenInTab", 'override':1 })
-autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': '<CR>', 'scope': "FileNode", 'callback': "OpenInTab", 'override':1 })
 let NERDTreeShowHidden=1
+let NERDTreeIgnore	=	['.swp$']
+
 
 function! OpenInTab(node)
-autocmd VimEnter * node
-    call a:node.activate({'reuse': 'all', 'where': 't'})
+ autocmd VimEnter * node
+ call a:node.activate({'reuse': 'all', 'where': 't'})
 endfunction
-
-"---------------------------------------------------------------------- PLUGIN NERDTREE TABS ----------------------------------------------------------------------
-
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_meaningful_tab_names = 1
-let NERDTreeShowHidden=1
 
 "---------------------------------------------------------------------- PLUGIN AIRLINE ----------------------------------------------------------------------
 
@@ -226,6 +232,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 1
 
 "If you have installed powerline fonts
 let g:airline_powerline_fonts = 1 "Set Arrow in ariline for use powerline fonts
+let g:airline#extensions#tabline#enabled = 1
 
 "---------------------------------------------------------------------- PLUGIN color ----------------------------------------------------------------------
 

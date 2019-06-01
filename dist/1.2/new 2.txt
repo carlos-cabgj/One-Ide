@@ -1,0 +1,6 @@
+URL : ../novosga/public/modules/sga.atendimento
+
+Adição de campos no atendimento 
+Combo para atualizar cada objeto de atendimento relacionado ao serviço
+Campo para atualizar resposta do atendimento por serviço
+Combo para atualizar 

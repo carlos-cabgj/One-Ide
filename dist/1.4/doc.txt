@@ -1,0 +1,19 @@
+
+
+
+TIPOS FOR Far.vim
+Important :
+Far work only with existed files, so if you create a new file withour saving it, you will not have any results.
+
+Simple all
+:Far searched replaced **.*
+Simple in the same file
+:Far searched replaced %
+
+Selected text in visual and type :
+:'<,'>Far * replaced %
+
+After that you will be redirect to check tab.
+Use x to exclude item
+Use a to add item
+Use t to toggle item
