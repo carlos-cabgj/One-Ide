@@ -59,7 +59,7 @@ I'm alone testing those plugins and writing configurations, docs and tutorial fr
 Ag https://github.com/ggreer/the_silver_searcher ( Binary for Windows https://github.com/k-takata/the_silver_searcher-win32/releases, set it in OneIde )
 <br/>
 Ctags binary for Windows
-https://www.vim.org/scripts/script.php?script_id=2288
+https://github.com/universal-ctags/ctags-win32
 <br/>
 * Vim airline needs powerfonts for use arrows;
 
