@@ -86,7 +86,7 @@ OneIde bring the mouse suport on, but use only if necessary
 ||N |||a |||v |||i |||g |||a |||t |||i |||o |||n ||
 ||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-</pre>
+
 ( in normal mode )
 
 First part
@@ -113,7 +113,7 @@ Third part
     n, N : go foward and back the searching term
 
 Or ... use the mouse if you needed, but try to avoid this.
-
+</pre>
 2)
 <pre>
  ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
