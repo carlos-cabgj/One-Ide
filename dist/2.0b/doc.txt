@@ -1,0 +1,235 @@
+ ____ ____ ____ _________ ____ ____ ____ 
+||O |||N |||E |||       |||I |||D |||E ||
+||__|||__|||__|||_______|||__|||__|||__||
+|/__\|/__\|/__\|/_______\|/__\|/__\|/__\|
+
+Vim is a little bit hard to learn, so ... for a quick tutorial here, follow this guide with those informations in mind:
+
+Vim have difirente modes, and Vim wiil be alway in one mode by time, and you need to use them :
+Visual, normal, inser, select, command-line and ex-mode
+
+try to switch modes besides to emulate one mode inside other
+
+OneIde bring the mouse suport on, but use only if necessary
+
+1   ) Navigation
+2   ) Manipulaiton
+3   ) TIPS
+4   ) ONEIDE SETUP!
+5   ) FUNCTIONS
+5.1 ) OneIde Crypt
+5.2 ) OneIde AutoDeploy
+6   ) PLUGINS used and tips
+
+1) ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+||N |||a |||v |||i |||g |||a |||t |||i |||o |||n ||
+||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+( in normal mode )
+
+First part
+    left = h, down = j, up = k, right = l
+        you can plus this moviment typing a number before the letter. 10 + j, go ten times down
+Second part
+    w = jump to the begginer of next word
+    e = jump to the last of next word
+    b = jump to the back of last word
+        You can use B,W or E, to jump some cases better
+    $ = jump to the end of line
+    ^ = jump to the begginer of line ( pay attention, is some keyboards you will need to press space )
+    f + {letter} = jump foward to the next choosed letter
+    F + {letter} = jump Backward
+    : + {line number} = jump to the line number
+    G = go to the end of the file
+    gg = go to the first line of the file
+Third part
+    Easy mottion type twice \\ and + w or + b to decide to move foward or backwards. After choosing the place typing the coordnades 
+    The plugin Ack will help you to navigate around your project, look at plugins part
+    / + {searched} = Enter in command line mode and start to search in this document the term ( is necessary escape the spaces )
+    Swift + * = search the word under cursor
+    searching will start to highlight the searched in the document encounters, to go forwar and back use 
+    n, N : go foward and back the searching term
+
+Or ... use the mouse if you needed, but try to avoid this.
+
+2)
+ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+||M |||A |||N |||I |||P |||U |||L |||A |||T |||I |||O |||N ||
+||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+( in normal mode )
+
+Insert (Entering in the insert mode )
+    i   = open insert mode AFTER cursor
+    a   = open insert mode BEFORE cursor
+    o   = open insert mode in next line, indented
+    A,I = do the same thing, but at the beggenign or end of line
+    s   = open insert mode erasing the selection under cursor
+    S   = delete the whole line and enter in insert mode and indented
+
+Exclude
+    x  = to exclude under the cursor (or the selection) ( in OneIde, this option will not yank the selection )
+    d  = to exclude under the cursor (or the selection)
+    dd = exclude whole line
+    dwa = erase the word under cursor
+
+Select ( Entering in de visual mode )
+    v        = enter in visual mode, and select the content starting under the cursor
+    gv       = enter in visual mode, and select the last visual selection
+    V        = enter in visual mode, and select the whole line
+    ctrl + v = enter in visual mode, and select the content starting under the cursor verticaly, after that you can use I,A, P .... 
+
+Or ... use the mouse, double click will select the word, and click and drag the "v" behavior
+
+Copy and Paste
+    y = yank the selection
+    p = paste text after cursor
+    P = paste text before cursor
+    ctrl + C = work for copy the selected, but copy to clipboard
+    ctrl + V = work for paste the selected from clipboard
+
+3)
+ ____ ____ ____ ____ 
+||t |||i |||p |||s ||
+||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|
+
+Switch Case
+    u,U = transform tex to lower or upper case
+Go to end of block
+    % = type the begginer of the block like { of if
+
+4)
+ ____ ____ ____ ____ ____ ____ _________ ____ ____ ____ ____ ____ ____ 
+||O |||N |||E |||I |||D |||E |||       |||S |||E |||T |||U |||P |||! ||
+||__|||__|||__|||__|||__|||__|||_______|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+ctrl + f         = do the same as ESC, and clear the last search result ( when used in the normal mode )
+gn, gp           = change buffer to next or previous
+gd , gD          = close buffer, and close buffer without saving
+Tab, shift + Tab = Indent in visual and insert mode
+f8               = will change colors of vim
+
+In OneIde 
+You can change buffers withour saving 
+indenting is with 4 spaces
+Line numbers always on
+.one-project is the file that define a project in ONEIDE the actual structure is :
+
+{
+    "encryption": {
+        "status" : 0,
+        "mode" : 'fullDecrypt',
+        "pathDecode" : 'fullPath'
+    },
+    "autodeploy": {
+        "status" : 0,
+        "type" : "sftp",
+        "host" : "",
+        "port" : "",
+        "user" : "",
+        "pass" : "",
+        "pathServer" : 'fullPath',
+        "pathLocal" : 'path'
+    }
+}
+
+5)
+ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+||F |||U |||N |||C |||T |||I |||O |||N |||S ||
+||__|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+5.1) OneIde Crypt
+
+    OneIdeCrypt uses Vim blowfish2 to encode your project.
+    For use set you encryption = 1 in your .one-project
+    Encode you whole project, after that you will be asked a password ( REMEMBER YOU PASSWORD )
+    After that, every time that you enter in your project, you will be asked the password at the beggining
+
+    :OneProjectAddPassword 
+        Open a file in your one-project and use this function to define the password of the project
+
+    :OneProjectDecrypt
+        Open a file in your one-project and use this function to decode your project to the path defined in .one-project
+        "pathDecode".
+        If a password was defined, It will use the current password to decrypt or you will be asked a new one.
+
+    :ProjectEncrypt
+        Open a file in your one-project and use this function for encrypt your whole project
+        Caution! protect and remember your password
+
+
+5.2) OneIde AutoDeploy
+    OneIde bring on more functionality to your project.
+    AutoDeploy permit that every time that you save your file, It will be sent to a new destination!
+    Set in your .one-project file "autodeploy" {status : 1}, and choose your configuration with :
+    host = host of the server
+    port = for connection
+    user = user for login
+    pass = for login
+    pathServer = path where the files will be saved in the server
+    pathLocal = if needed to define a new path, use \ to avoid this
+
+    Now AutoDeploy only work with sftp using pscp, I'm working for be available with putty and linux tools too.
+
+6)
+ ____ ____ ____ ____ ____ ____ ____ 
+||P |||L |||U |||G |||I |||N |||S ||
+||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+used and tips
+
+"Development Tools
+
+majutsushi/tagbar
+tope/vim-surround
+tpope/vim-commentary
+w0rp/ale
+ludovicchabant/vim-gutentags
+skywind3000/gutentags_plus
+mbbill/undotree
+-----------------
+brooth/far.vim
+-----------------
+Far work only with existed files, so if you create a new file withour saving it, you will not have any results.
+
+After that you will be redirect to check tab.
+    Use x to exclude item
+    Use a to add item
+    Use t to toggle item
+
+:Far searched replaced **.*
+
+Simple in the same file
+:Far searched replaced %
+
+Selected text in visual and type 
+:'<,'>Far * replaced %
+
+-----------------
+nathanaelkane/vim-indent-guides
+godlygeek/tabular
+
+Shougo/deoplete.nvim
+roxma/nvim-yarp
+roxma/vim-hug-neovim-rpc
+Shougo/neosnippet.vim
+Shougo/neosnippet-snippets
+honza/vim-snippets
+skywind3000/asyncrun.vim
+
+" Tools
+scrooloose/nerdtree
+vim-airline/vim-airline
+flazz/vim-colorschemes
+terryma/vim-multiple-cursors
+easymotion/vim-easymotion
+tpope/vim-fugitive
+osyo-manga/vim-anzu
+
+"Searchers
+mileszs/ack.vim
+kien/ctrlp.vim
