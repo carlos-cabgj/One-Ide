@@ -63,22 +63,21 @@ I'm alone testing those plugins and writing configurations, docs and tutorial fr
 </pre>
 
 Vim is a little bit hard to learn, so ... for a quick tutorial here, follow this guide with those informations in mind:
-
+<br/>
 Vim have difirente modes, and Vim wiil be alway in one mode by time, and you need to use them :
 Visual, normal, inser, select, command-line and ex-mode
-
 try to switch modes besides to emulate one mode inside other
-
+<p>
 OneIde bring the mouse suport on, but use only if necessary
-
-1   ) Navigation
-2   ) Manipulaiton
-3   ) TIPS
-4   ) ONEIDE SETUP!
-5   ) FUNCTIONS
-5.1 ) OneIde Crypt
-5.2 ) OneIde AutoDeploy
-6   ) PLUGINS used and tips
+</p>
+1   ) Navigation <br/>
+2   ) Manipulaiton<br/>
+3   ) TIPS<br/>
+4   ) ONEIDE SETUP!<br/>
+5   ) FUNCTIONS<br/>
+5.1 ) OneIde Crypt<br/>
+5.2 ) OneIde AutoDeploy<br/>
+6   ) PLUGINS used and tips<br/>
 
 1)
 <pre>
@@ -120,7 +119,7 @@ Or ... use the mouse if you needed, but try to avoid this.
 ||M |||A |||N |||I |||P |||U |||L |||A |||T |||I |||O |||N ||
 ||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-</pre>
+
 ( in normal mode )
 
 Insert (Entering in the insert mode )
@@ -151,20 +150,20 @@ Copy and Paste
     P = paste text before cursor
     ctrl + C = work for copy the selected, but copy to clipboard
     ctrl + V = work for paste the selected from clipboard
-
+</pre>
 3)
 <pre>
  ____ ____ ____ ____ 
 ||t |||i |||p |||s ||
 ||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|
-</pre>
+
 
 Switch Case
     u,U = transform tex to lower or upper case
 Go to end of block
     % = type the begginer of the block like { of if
-
+</pre>
 4)
 <pre>
  ____ ____ ____ ____ ____ ____ _________ ____ ____ ____ ____ ____ ____ 
@@ -210,7 +209,7 @@ Line numbers always on
 ||__|||__|||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-</pre>
+
 5.1) OneIde Crypt
 
     OneIdeCrypt uses Vim blowfish2 to encode your project.
@@ -243,7 +242,7 @@ Line numbers always on
     pathLocal = if needed to define a new path, use \ to avoid this
 
     Now AutoDeploy only work with sftp using pscp, I'm working for be available with putty and linux tools too.
-
+</pre>
 6)
 <pre>
  ____ ____ ____ ____ ____ ____ ____ 
@@ -251,7 +250,7 @@ Line numbers always on
 ||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-</pre>
+
 used and tips
 
 "Development Tools
@@ -305,7 +304,7 @@ osyo-manga/vim-anzu
 "Searchers
 mileszs/ack.vim
 kien/ctrlp.vim
-
+</pre>
 
 
 * One-IDE uses phpcd (need PHP installed) plugins and Silver Searcher (Ag), they both have a little more work to install.
