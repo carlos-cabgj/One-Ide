@@ -4,6 +4,10 @@ else
     let g:sep = '/'
 endif
 
+" let a = 'C:\Users\01744368155\Dropbox\projects\yvy-marã\docs\fluxos.min.js'
+" :echo matchstr(a, '.min.') 
+" let a = 'C:\Users\01744368155\Dropbox\projects\yvy-marã\docs\fluxos~~'
+" :echo matchstr(a, '(./+)\~') 
 function onefunctions#readIgnore(pathConfig)
     let config = []
     let lines = readfile(a:pathConfig)
@@ -14,13 +18,29 @@ function onefunctions#readIgnore(pathConfig)
     return config
 endfunction
 
+function onefunctions#i18n(message)
+    let messages = {
+        \ 'setpassproj' : 'Set the password to this project encryption:',
+        \ 'passtoenc' : 'Password to encryption: ',
+        \ 'passfoproj' : 'password for this project :',
+        \ 'passnotvalid' : 'password not valid',
+        \ 'thisprojdhaconf' : "this project doesn't have a configuration",
+        \ }
+
+    if has_key(messages, a:message)
+        return messages[a:message]
+    else
+        return ''
+    endif
+endfunction
+
 function onefunctions#regexTestFiles(patherns, file)
     let result = 0
     let patherns = a:patherns + [g:ignoreFile, '.one-project']
 
     for pathern in patherns
-        let a:pathern = substitute(escape(pathern, '\~'), '*', '(.+)', "g")
-        if matchstr(a:file, a:pathern)
+        let pathern = escape(substitute(pathern, '*', '[[:print:]]{0,}', "g"), '\~{')
+        if matchstr(a:file, pathern) != ''
             let result = 1
         endif
     endfor
@@ -47,11 +67,12 @@ function onefunctions#getFileInTree(file)
         let file = path . a:file
         if filereadable(file)
             let pathFile = file
-            let basePath = substitute(path, escape(g:sep.'$', '+\?'), '', '')
+            " let basePath = substitute(path, escape(g:sep.'$', '+\?~'), '', '')
+            let basePath = path
             break
         endif
         let lengthPath = strlen(path)
-        let path = substitute(path, escape('[^'.g:sep.']+'.g:sep.'?$', '+\?'), '', '')
+        let path = substitute(path, escape('[^'.g:sep.']+'.g:sep.'?$', '+\?~'), '', '')
     endwhile
 
     if pathFile != ""
@@ -60,3 +81,4 @@ function onefunctions#getFileInTree(file)
         return []
     endif
 endfunction
+
