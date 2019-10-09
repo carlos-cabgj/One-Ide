@@ -201,6 +201,18 @@ Line numbers always on
         "pathLocal" : 'path'
     }
 }
+<p>encryption.status : 0 - off, 1 - on<br />
+encryption.mode : still not used<br />
+encryption.pathDecode : if declared, when saved, one copy of the file, not encrypted will be in this path</p>
+
+<p>autodeploy.status : 0 - off, 1 - on<br />
+autodeploy.type : still not used<br />
+autodeploy.program : only PSCPPLINK is available now<br />
+autodeploy.plink : pash to plink executable<br />
+autodeploy.pscp : pash to pscp executable<br />
+autodeploy.pathServer : path to deploy the files is the server<br />
+autodeploy.pathLocal : pash to start localy</p>
+
 
 5)
 <pre>

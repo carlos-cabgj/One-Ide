@@ -4,33 +4,34 @@ else
     let g:sep = '/'
 endif
 
-" let a = 'C:\Users\01744368155\Dropbox\projects\yvy-marã\docs\fluxos.min.js'
-" :echo matchstr(a, '.min.') 
-" let a = 'C:\Users\01744368155\Dropbox\projects\yvy-marã\docs\fluxos~~'
-" :echo matchstr(a, '(./+)\~') 
 function onefunctions#readIgnore(pathConfig)
     let config = []
     let lines = readfile(a:pathConfig)
     for line in lines
         :call add(config, line)
     endfor
-
     return config
 endfunction
 
 function onefunctions#i18n(message)
     let messages = {
-        \ 'setpassproj' : 'Set the password to this project encryption:',
-        \ 'passtoenc' : 'Password to encryption: ',
-        \ 'passfoproj' : 'password for this project :',
-        \ 'passnotvalid' : 'password not valid',
+        \ 'starting'        : "starting",
+        \ 'exit'            : "exit",
+        \ 'plinkNotFound'   : "PLINK not found",
+        \ 'pscpNotFound'    : "PSCP not found",
+        \ 'saltpasstoenc'   : "Set the salt to this project encryption     : ",
+        \ 'setpassproj'     : 'Set the password to this project encryption : ',
+        \ 'passtoenc'       : 'Password to encryption                      : ',
+        \ 'passfoproj'      : 'password for this project                   : ',
+        \ 'passnotvalid'    : 'password not valid',
         \ 'thisprojdhaconf' : "this project doesn't have a configuration",
+        \ 'decryptSuccess'  : "Decrypted",
         \ }
 
     if has_key(messages, a:message)
         return messages[a:message]
     else
-        return ''
+        return 'No Message'
     endif
 endfunction
 
@@ -67,7 +68,6 @@ function onefunctions#getFileInTree(file)
         let file = path . a:file
         if filereadable(file)
             let pathFile = file
-            " let basePath = substitute(path, escape(g:sep.'$', '+\?~'), '', '')
             let basePath = path
             break
         endif
@@ -81,4 +81,3 @@ function onefunctions#getFileInTree(file)
         return []
     endif
 endfunction
-

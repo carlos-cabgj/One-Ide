@@ -126,14 +126,29 @@ Line numbers always on
     "autodeploy": {
         "status" : 0,
         "type" : "sftp",
+        "program"    : 'PSCPPLINK', 
         "host" : "",
         "port" : "",
         "user" : "",
         "pass" : "",
         "pathServer" : 'fullPath',
         "pathLocal" : 'path'
+        "plink"      : 'c:\workspace\plink.exe',
+        "pscp"       : 'c:\workspace\pscp.exe'
     }
 }
+
+encryption.status     : 0 - off, 1 - on
+encryption.mode       : still not used
+encryption.pathDecode : if declared, when saved, one copy of the file, not encrypted will be in this path
+
+autodeploy.status     : 0 - off, 1 - on
+autodeploy.type       : still not used
+autodeploy.program    : only PSCPPLINK is available now
+autodeploy.plink      : pash to  plink executable
+autodeploy.pscp       : pash to  pscp executable
+autodeploy.pathServer : path to deploy the files is the server
+autodeploy.pathLocal  : pash to start localy
 
 5)
  ____ ____ ____ ____ ____ ____ ____ ____ ____ 
