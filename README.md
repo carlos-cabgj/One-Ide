@@ -29,30 +29,31 @@ The version is VIM8, only because more people are using it. But fell free to use
 
 You must have the vim installed in your system.
 
-<ol>
-    <li>Install vim-plug. Every thing that will be installed will be with this plugin Check https://github.com/junegunn/vim-plug and install in your vim;</li>
-    <li>Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
-        Now you must choose your configuration for example <br/>
-        <p>
-            call plug#begin()</br>
-            Plug 'carlos-cabgj/One-Ide'</br>
-            let g:One_Ide_options = ['php', 'js']</br>
+*Install vim-plug. Every thing that will be installed will be with this plugin Check https://github.com/junegunn/vim-plug and install in your vim;
+*Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
+        Now you must choose your configuration for example 
+
+```
+            call plug#begin()
+            Plug 'carlos-cabgj/One-Ide'
+            let g:One_Ide_options = ['php', 'js']
             
             if filereadable($HOME . "/.vim/plugged/One-Ide/dist/2.0b/one_ide.vim")</br>
                 source $HOME/.vim/plugged/One-Ide/dist/2.0b/one_ide.vim</br>
-                endif</br>
+                endif
 
-                if filereadable($HOME . "//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim")</br>
-                source $HOME//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim</br>
-            endif</br>
-            call plug#end()</br>
-        </p>
+                if filereadable($HOME . "//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim")
+                source $HOME//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim
+            endif
+            call plug#end()
+```
+
         In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
-    </li>
-    <li>Open vim, run :PlugInstall one time for install the OneIde, close and do the same thing again for install the plugins.</li>
-    <li>Attention! if you are using vim on windows, would be necessary change the file path</li>
-    <li>Enjoy!</li>
-</ol>
+
+*Open vim, run :PlugInstall one time for install the OneIde, close and do the same thing again for install the plugins.
+*Attention! if you are using vim on windows, would be necessary change the file path
+*Enjoy!
+
 
 This is the first commit of One-IDE. The documentation Will be release soon.
 
