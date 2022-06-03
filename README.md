@@ -29,8 +29,8 @@ The version is VIM8, only because more people are using it. But fell free to use
 
 You must have the vim installed in your system.
 
-*Install vim-plug. Every thing that will be installed will be with this plugin Check https://github.com/junegunn/vim-plug and install in your vim;
-*Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
+* Install vim-plug. Every thing that will be installed will be with this plugin Check https://github.com/junegunn/vim-plug and install in your vim;
+* Put the content of default.vimrc in your .vimrc or replace the file. Attention! Check if your .vimrc file exist!
         Now you must choose your configuration for example 
 
 ```
@@ -48,11 +48,10 @@ You must have the vim installed in your system.
             call plug#end()
 ```
 
-        In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
-
-*Open vim, run :PlugInstall one time for install the OneIde, close and do the same thing again for install the plugins.
-*Attention! if you are using vim on windows, would be necessary change the file path
-*Enjoy!
+* In g:One_Ide_options you can choose the libraries, at this moment, only js (html, js, jsx, less) and php configurations.
+* Open vim, run :PlugInstall one time for install the OneIde, close and do the same thing again for install the plugins.
+* Attention! if you are using vim on windows, would be necessary change the file path
+* Enjoy!
 
 
 This is the first commit of One-IDE. The documentation Will be release soon.
