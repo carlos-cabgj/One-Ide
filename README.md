@@ -37,8 +37,13 @@ You must have the vim installed in your system.
             call plug#begin()</br>
             Plug 'carlos-cabgj/One-Ide'</br>
             let g:One_Ide_options = ['php', 'js']</br>
+            
             if filereadable($HOME . "/.vim/plugged/One-Ide/dist/2.0b/one_ide.vim")</br>
                 source $HOME/.vim/plugged/One-Ide/dist/2.0b/one_ide.vim</br>
+                endif</br>
+
+                if filereadable($HOME . "//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim")</br>
+                source $HOME//vimfiles//plugged//One-Ide//dist//2.0b//one_ide.vim</br>
             endif</br>
             call plug#end()</br>
         </p>
