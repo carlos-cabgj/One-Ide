@@ -4,28 +4,56 @@ else
     let g:sep = '/'
 endif
 
+function onefunctions#log(message)
+python3 << EOF
+from datetime import datetime
+import json
+# now = datetime.now()
+# log = open('./one-log.txt', "a")
+# log.write("\n"+ now.strftime("%Y-%m-%d %H:%M:%S") + ' '+ json.dumps(vim.eval('a:message'))+"\n")
+# log.close()
+EOF
+endfunction
+
+function onefunctions#onLoad()
+    :exec 'NERDTree '.g:nerdTreeDefaultPath
+	if has('nvim')
+	    :echo onefunctions#i18n('stealth.inNvim')
+	else
+	    autocmd VimEnter * setlocal cm=blowfish2
+	endif
+endfunction
+
 function onefunctions#readIgnore(pathConfig)
     let config = []
     let lines = readfile(a:pathConfig)
-    for line in lines
-        :call add(config, line)
-    endfor
+
+    if lines != []
+        for line in lines
+            :call add(config, line)
+        endfor
+    endif
     return config
 endfunction
 
 function onefunctions#i18n(message)
     let messages = {
-        \ 'starting'        : "starting",
-        \ 'exit'            : "exit",
-        \ 'plinkNotFound'   : "PLINK not found",
-        \ 'pscpNotFound'    : "PSCP not found",
-        \ 'saltpasstoenc'   : "Set the salt to this project encryption     : ",
-        \ 'setpassproj'     : 'Set the password to this project encryption : ',
-        \ 'passtoenc'       : 'Password to encryption                      : ',
-        \ 'passfoproj'      : 'password for this project                   : ',
-        \ 'passnotvalid'    : 'password not valid',
-        \ 'thisprojdhaconf' : "this project doesn't have a configuration",
-        \ 'decryptSuccess'  : "Decrypted",
+        \ 'starting'            : "starting",
+        \ 'exit'                : "exit",
+        \ 'deploy.plinkNotFound'       : "PLINK not found",
+        \ 'deploy.pscpNotFound'        : "PSCP not found",
+        \ 'deploy.noMethod'     : "No Method found",
+        \ 'saltpasstoenc'       : "Set the salt to this project encryption : ",
+        \ 'setpassproj'         : 'Set the password to this project encryption : ',
+        \ 'passtoenc'           : 'Password to encryption : ',
+        \ 'passfoproj'          : 'password for this project : ',
+        \ 'passnotvalid'        : 'password not valid',
+        \ 'thisprojdhaconf'     : "this project doesn't have a configuration",
+        \ 'decryptSuccess'      : "Decrypted",
+        \ 'font-size'           : "Digite a fonte : ",
+        \ 'font-non-compatible' : "você não está em uma GUI para mudar a fonte",
+        \ 'stealth.inNvim'      : "você está no NeoVim que não é compatível com blowfish",
+        \ 'one.select.folder'   : "Select the path for creation : ",
         \ }
 
     if has_key(messages, a:message)
@@ -51,11 +79,16 @@ endfunction
 function onefunctions#readConfig(pathConfig)
     let config = ""
     let lines = readfile(a:pathConfig)
-    for line in lines
-        let config = config . line
-    endfor
 
-    exec "return " . substitute(config, "\n", "", "")
+    if lines == []
+        return {}
+    else
+        for line in lines
+            let config = config . line
+        endfor
+
+        exec "return " . substitute(config, "\n", "", "")
+    endif
 endfunction
 
 function onefunctions#getFileInTree(file)

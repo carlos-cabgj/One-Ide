@@ -17,7 +17,7 @@ endif
 
 let loaded_setcolors = 1
 " colorscheme names that we use to set color
-let s:mycolors = ['slate', 'torte', 'murphy', 'elflord', 'alduin', 'vorange', '1989', 'smyck', 'apprentice', 'atom', 'hybrid_material', 'herokudoc', 'colorsbox-material', 'beekai', 'shades-of-teal', 'xcode', 'PaperColor', 'lightning', 'aurora', 'oldbook', 'editplus', 'abyss', 'aquamarine', 'lyla', 'antares', 'behelit', 'deus']  
+let s:mycolors = ['atom', 'hybrid_material', 'herokudoc', 'deus', 'coffee', 'iceberg', 'Tomorrow-Night-Eighties', 'babymate256', 'jellyx', 'deep-space']  
 
 " Set list of color scheme names that we will use, except
 " argument 'now' actually changes the current color scheme.
